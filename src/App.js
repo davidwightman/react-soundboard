@@ -18,10 +18,16 @@ class App extends Component {
   ]
 }
 
+  triggerSample = () => {
+    // select key
+    // select audio
+    // add class 'playing'
+  }
+
   render() {
     return (
       <div className="App">
-          <ButtonList sample={this.state.sample} onClickButton={this.onClickButton}/>
+          <ButtonList sample={this.state.sample} triggerSample={this.onClicKey}/>
       </div>
     );
   }
