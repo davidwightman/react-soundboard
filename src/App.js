@@ -21,7 +21,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <ButtonList sample={this.state.sample} onClickButton={this.props.onClickButton}/>
+          <ButtonList sample={this.state.sample} onClickButton={this.onClickButton}/>
       </div>
     );
   }

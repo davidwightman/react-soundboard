@@ -7,7 +7,7 @@ class Button extends Component {
         
         return (
             <div>
-                    <div data-key={this.props.dataKey} className="key">
+                    <div data-key={this.props.dataKey} className="key" onClick={this.props.onClick}>
                         <kbd>{this.props.letter}</kbd>
                     <span className="sound">{this.props.sound}</span>
                 </div>
