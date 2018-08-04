@@ -14,7 +14,7 @@ class ButtonList extends Component {
                         dataKey={s.dataKey}
                         letter={s.letter}
                         sound={s.sound}
-                        
+                        onKeyDown={this.props.onKeyDown}
                     />
                  
                 ))}
