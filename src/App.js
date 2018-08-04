@@ -14,11 +14,13 @@ class App extends Component {
       dataKey: "83",
       letter: "S",
       sound: "haah!" 
-    }
+    },
+    // more samples
   ]
 }
 
-  triggerSample = () => {
+  playSample = () => {
+    console.log('PLAY SAMPLE')
     // select key
     // select audio
     // add class 'playing'
@@ -27,7 +29,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <ButtonList sample={this.state.sample} triggerSample={this.onClicKey}/>
+          <ButtonList sample={this.state.sample} onKeyDown={this.playSample}/>
       </div>
     );
   }
