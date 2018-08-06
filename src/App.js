@@ -1,35 +1,40 @@
 import React, { Component } from 'react';
-import ButtonList from './ButtonList';
+import Button from './Button';
 import './App.css';
 
 class App extends Component {
   state = {
-  sample: [
-    {
-      dataKey: "65",
-      letter: "A",
-      sound: "ahh!" 
-    },
-    {
-      dataKey: "83",
-      letter: "S",
-      sound: "haah!" 
-    },
-    // more samples
-  ]
+    playing: null,
+    sample: {
+      65: {
+        letter: "A",
+        sound: "ahh",
+      },
+       83: {
+        letter: "S",
+        sound: "haah",
+      },
+      // more samples
+    }
 }
 
-  playSample = () => {
-    console.log('PLAY SAMPLE')
-    // select key
-    // select audio
-    // add class 'playing'
-  }
+  playSample = (e) => {
+    console.log(e)
+    this.setState({playing: e.keyCode }, () => {
+      setTimeout(() => {
+        this.setState({playing: null});
+      }, 400);
+    })
+  };
 
   render() {
     return (
       <div className="App">
-          <ButtonList sample={this.state.sample} onKeyDown={this.playSample}/>
+      <div className="keys" tabIndex="0" onKeyDown={this.onKeyPressed}>
+          {Object.keys(this.state.sample).map(key => (
+            <Button key={key} {...this.state.sample[key]} play={this.state.playing === Number(key)} />
+          ))}
+      </div>
       </div>
     );
   }
